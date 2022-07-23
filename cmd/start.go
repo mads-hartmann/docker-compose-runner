@@ -1,8 +1,7 @@
 package cmd
 
 import (
-	"fmt"
-
+	"github.com/mads-hartmann/docker-compose-runner/pkg"
 	"github.com/spf13/cobra"
 )
 
@@ -14,9 +13,14 @@ func init() {
 }
 
 var startCmd = &cobra.Command{
-	Use:   "start",
+	Use:   "start <git-url>",
 	Short: "Start a Docker Composed application",
+	Args:  cobra.MinimumNArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Printf("start watch=%t", watch)
+		app := pkg.Application{
+			GitUrl: args[0],
+			Watch:  watch,
+		}
+		app.Run()
 	},
 }

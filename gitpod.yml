@@ -1,0 +1,10 @@
+tasks:
+  - name: Configure workspace
+    init: |
+      go install golang.org/x/tools/cmd/goimports@v0.1.11
+      go install golang.org/x/lint/golint@v0.0.0-20210508222113-6edffad5e616
+      # Used by golang.go vscode extension
+      go install honnef.co/go/tools/cmd/staticcheck@2020.2.1
+vscode:
+  extensions:
+    - golang.go

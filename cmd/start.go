@@ -1,7 +1,7 @@
 package cmd
 
 import (
-	"github.com/mads-hartmann/docker-compose-runner/pkg"
+	"github.com/mads-hartmann/docker-compose-runner/pkg/application"
 	"github.com/spf13/cobra"
 )
 
@@ -17,7 +17,7 @@ var startCmd = &cobra.Command{
 	Short: "Start a Docker Composed application",
 	Args:  cobra.MinimumNArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
-		app := pkg.Application{
+		app := application.Application{
 			GitUrl: args[0],
 			Watch:  watch,
 		}

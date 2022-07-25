@@ -19,6 +19,7 @@ func TestCommand(t *testing.T) {
 		{"Filesystem access", "file testdata/example.md", "testdata/example.md: ASCII text", "", ""},
 		{"Echo stdout", "echo Hello to stdout", "Hello to stdout", "", ""},
 		{"Echo stderr", ">&2 echo Hello to stderr", "", "Hello to stderr", ""},
+		{"Exit with error", "exit 1", "", "", "exit status 1"},
 	}
 
 	for _, d := range data {

@@ -12,7 +12,7 @@ type Application struct {
 }
 
 func (app *Application) Run() error {
-	err, stdout, stderr := shell.Command("ls")
+	stdout, stderr, err := shell.Command("ls")
 	if err != nil {
 		fmt.Println(stderr)
 		return err

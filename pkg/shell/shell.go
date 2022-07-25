@@ -6,12 +6,12 @@ import (
 )
 
 // Command executes a command using "bash -c <command>"
-func Command(command string) (error, string, string) {
+func Command(command string) (string, string, error) {
 	var stdout bytes.Buffer
 	var stderr bytes.Buffer
 	cmd := exec.Command("bash", "-c", command)
 	cmd.Stdout = &stdout
 	cmd.Stderr = &stderr
 	err := cmd.Run()
-	return err, stdout.String(), stderr.String()
+	return stdout.String(), stderr.String(), err
 }
